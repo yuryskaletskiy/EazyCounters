@@ -31,3 +31,10 @@ Assert.AreEqual(1 / 60, c1.AvgEventsPerMinute);
 Assert.AreEqual(1/24, c1.AvgEventsPerHour);
 Assert.AreEqual(1, c2.TotalEvents);
 ```
+
+Obtaining list of counters
+```
+var cs = new CounterStore();
+var c1 = cs.GetCounter("c1");
+string[] counterNames = cs.EnumerateCounters();
+```
