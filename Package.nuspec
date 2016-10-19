@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Sw.EazyCounters</id>
+    <version>1.0.0</version>
+    <authors>yuryskaletskiy</authors>
+    <owners>yuryskaletskiy</owners>
+    <licenseUrl>https://github.com/yuryskaletskiy/EazyCounters/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/yuryskaletskiy/EazyCounters</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.net trivial in-process counter implementation (thread-safe)</description>
+    <releaseNotes>Initial revision</releaseNotes>
+    <copyright>Copyright 2016 Yury Skaletskiy</copyright>
+    <tags>.net performance</tags>
+  </metadata>
+
+  <files>
+	<file src="Sw.EazyCounters\bin\Release\Sw.EazyCounters.dll" target="lib\net45\Sw.EazyCounters.dll" />
+  </files>  
+
+
+</package>
