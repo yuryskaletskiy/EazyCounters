@@ -9,6 +9,14 @@ namespace Sw.EazyCounters
     public class CounterStore
     {
         readonly Dictionary<string, Counter> _counters  = new Dictionary<string, Counter>();
+
+        public string[] EnumerateCounters()
+        {
+            lock (_counters)
+            {
+                return _counters.Keys.ToArray();
+            }
+        }
         public Counter GetCounter(string counterName)
         {
             lock (_counters)

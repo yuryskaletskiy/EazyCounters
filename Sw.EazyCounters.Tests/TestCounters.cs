@@ -32,6 +32,12 @@ namespace Sw.EazyCounters.Tests
             Assert.AreEqual(1/24, c1.AvgEventsPerHour);
 
             Assert.AreEqual(1, c2.TotalEvents);
+
+
+            var counterNames = cs.EnumerateCounters().OrderBy(a=>a);
+            Assert.AreEqual(2, counterNames.Count());
+            Assert.AreEqual("c1", counterNames.First());
+            Assert.AreEqual("c2", counterNames.Last());
         }
     }
 }
