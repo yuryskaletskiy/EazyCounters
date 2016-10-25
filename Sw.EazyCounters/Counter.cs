@@ -9,8 +9,10 @@ namespace Sw.EazyCounters
     public class Counter
     {
         private object _lock = new object();
+        private object _commentLock = new object();
 
         private ulong _totalEvents;
+        private string _comment;
 
         private readonly uint[] _secEvents = new uint[60];
         private readonly uint[] _minEvents = new uint[60];
@@ -50,6 +52,12 @@ namespace Sw.EazyCounters
                     return _totalEvents;
                 }
             }
+            set {
+                lock (_lock)
+                {
+                    _totalEvents = value;
+                }
+            }
         }
 
         public double AvgEventsPerSecond
@@ -59,6 +67,24 @@ namespace Sw.EazyCounters
                 lock (_lock)
                 {
                     return Sum(_secEvents)/_secEvents.Length;
+                }
+            }
+        }
+
+        public string Comment
+        {
+            get
+            {
+                lock (_commentLock)
+                {
+                    return _comment;
+                }
+            }
+            set
+            {
+                lock (_commentLock)
+                {
+                    _comment = value;
                 }
             }
         }

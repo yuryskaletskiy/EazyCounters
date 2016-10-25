@@ -30,5 +30,13 @@ namespace Sw.EazyCounters
                 return c;
             }
         }
+
+        public void DeleteCounter(string counterName)
+        {
+            lock (_counters)
+            {
+                _counters.Remove(counterName);
+            }
+        }
     }
 }
